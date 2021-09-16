@@ -1,6 +1,16 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
+    "noImplicitReturns": true,
+    "strict": true,
+    "target": "es2020",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
     "module": "commonjs",
     "outDir": "./lib",
     "sourceMap": true,
@@ -12,6 +22,5 @@
   "compileOnSave": true,
   "include": [
     "./src"
-  ],
-  "references": []
+  ]
 }
