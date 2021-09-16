@@ -1,6 +1,5 @@
-import { Register } from "./Register";
+import { Register, ExternalRegister } from "./Register";
 import { Scoreboard, ExternalScoreboard } from "./GameScoreboard";
-import { ExternalRegister } from "./Register";
 import {
   ExternalAnswers,
   ExternalEvaluationScoreboard,
