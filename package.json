@@ -1,0 +1,13 @@
+{
+  "name": "@herobone/sobersailor-common",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "author": "Herobone",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "typescript": "^4.4.2"
+  }
+}
