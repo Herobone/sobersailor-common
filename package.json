@@ -1,6 +1,6 @@
 {
   "name": "sobersailor-common",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "scripts": {
     "build": "tsc -b",
