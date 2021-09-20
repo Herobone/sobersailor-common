@@ -26,10 +26,11 @@ export interface Task {
 export type Question = string;
 export type Answer = string;
 
-export interface MultiAnswer {
+export type MultiAnswer = {
+  id: number;
   answer: Answer;
   rightAnswer?: boolean;
-}
+};
 
 export interface IMultiAnswerQuestion {
   question: Question;
