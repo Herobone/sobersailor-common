@@ -32,9 +32,11 @@ export type MultiAnswer = {
   rightAnswer?: boolean;
 };
 
-export type SingleAnswerTasks = {
+export type SingleAnswerTasksExternal = {
   [key: number]: string;
 };
+
+export type SingleAnswerTasks = Map<number, string>;
 
 export interface IMultiAnswerQuestion {
   question: Question;
@@ -50,6 +52,8 @@ export class MultiAnswerQuestion implements IMultiAnswerQuestion {
   // }
 }
 
-export type MultiAnswerTask = {
+export type MultiAnswerTaskExternal = {
   [key: number]: MultiAnswerQuestion;
 };
+
+export type MultiAnswerTask = Map<number, MultiAnswerQuestion>;
