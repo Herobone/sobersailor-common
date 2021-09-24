@@ -27,6 +27,19 @@ export default class Util {
     return strMap;
   }
 
+  /**
+   * Convert a JSON-style object map top a JavaScript Map
+   * This Object needs to be indexed with only numbers!
+   * @param obj The object that will be converted to a map
+   */
+  static indexedObjectToMap<T>(obj: { [key: string]: T }): Map<number, T> {
+    const map: Map<number, T> = new Map();
+    for (const k of Object.keys(obj)) {
+      map.set(Number(k), obj[k]);
+    }
+    return map;
+  }
+
   static random(from: number, to: number): number {
     return Math.floor(Math.random() * to + from);
   }
