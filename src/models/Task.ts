@@ -33,7 +33,7 @@ export type MultiAnswer = {
 };
 
 export type SingleAnswerTasksExternal = {
-  [key: number]: string;
+  [key: string]: string;
 };
 
 export type SingleAnswerTasks = Map<number, string>;
