@@ -27,7 +27,7 @@ import { MultiAnswer } from "./Task";
 
 export interface IGame {
   gameID: string;
-  currentTask: string | null;
+  currentTask: number | null;
   answers: MultiAnswer[] | null;
   type: string | null;
   taskTarget: string | null;
@@ -43,7 +43,7 @@ export interface IGame {
 }
 
 export interface IGameExternal<TimeStampClass> {
-  currentTask: string | null;
+  currentTask: number | null;
   answers: MultiAnswer[] | null;
   type: string | null;
   taskTarget: string | null;
@@ -62,7 +62,7 @@ export interface IGameExternal<TimeStampClass> {
 export class Game implements IGame {
   constructor(
     readonly gameID: string,
-    readonly currentTask: string | null,
+    readonly currentTask: number | null,
     readonly answers: MultiAnswer[] | null,
     readonly type: string | null,
     readonly taskTarget: string | null,

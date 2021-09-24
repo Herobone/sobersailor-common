@@ -32,6 +32,10 @@ export type MultiAnswer = {
   rightAnswer?: boolean;
 };
 
+export type SingleAnswerTasks = {
+  [key: number]: string;
+};
+
 export interface IMultiAnswerQuestion {
   question: Question;
   answers: MultiAnswer[];
@@ -45,3 +49,7 @@ export class MultiAnswerQuestion implements IMultiAnswerQuestion {
   //     return new MultiAnswerQuestion(parsed.question, parsed.answers);
   // }
 }
+
+export type MultiAnswerTask = {
+  [key: number]: MultiAnswerQuestion;
+};
