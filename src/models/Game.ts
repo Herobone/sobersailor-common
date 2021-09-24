@@ -5,7 +5,6 @@ import {
   ExternalEvaluationScoreboard,
   EvaluationScoreboard,
 } from "./EvaluationScoreboard";
-import { MultiAnswer } from "./Task";
 
 /*****************************
  * Sober Sailor - The online Party Game
@@ -28,7 +27,6 @@ import { MultiAnswer } from "./Task";
 export interface IGame {
   gameID: string;
   currentTask: number | null;
-  answers: MultiAnswer[] | null;
   type: string | null;
   taskTarget: string | null;
   penalty: number;
@@ -44,7 +42,6 @@ export interface IGame {
 
 export interface IGameExternal<TimeStampClass> {
   currentTask: number | null;
-  answers: MultiAnswer[] | null;
   type: string | null;
   taskTarget: string | null;
   penalty: number;
@@ -63,7 +60,6 @@ export class Game implements IGame {
   constructor(
     readonly gameID: string,
     readonly currentTask: number | null,
-    readonly answers: MultiAnswer[] | null,
     readonly type: string | null,
     readonly taskTarget: string | null,
     readonly penalty: number,
@@ -83,7 +79,6 @@ export class Game implements IGame {
     const board = Scoreboard.init();
     return new Game(
       id,
-      null,
       null,
       null,
       null,
