@@ -1,0 +1,17 @@
+{
+  "0": {
+    "question": "Was würdest du eher essen?",
+    "answers": {
+      "1": "Hunde",
+      "2": "Katzen",
+      "3": "Pferde"
+    }
+  },
+  "1": {
+    "question": "Würdest du lieber 10 minuten oder 150 Jahre in die Zukunft sehen?",
+    "answers": {
+      "1": "10 Minuten",
+      "2": "150 Jahre"
+    }
+  }
+}

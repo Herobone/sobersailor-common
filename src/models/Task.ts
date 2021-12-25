@@ -16,6 +16,8 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+import Util from "../Util";
+
 export interface Task {
   id: string;
   singleTarget: boolean;
@@ -25,11 +27,7 @@ export interface Task {
 export type Question = string;
 export type Answer = string;
 
-export type MultiAnswer = {
-  id: number;
-  answer: Answer;
-  rightAnswer?: boolean;
-};
+export type MultiAnswer = Map<number, Answer>;
 
 export type SingleAnswerTasksExternal = {
   [key: string]: Question;
@@ -37,22 +35,50 @@ export type SingleAnswerTasksExternal = {
 
 export type SingleAnswerTasks = Map<number, Question>;
 
-export interface IMultiAnswerQuestion {
-  question: Question;
-  answers: MultiAnswer[];
-}
-
-export class MultiAnswerQuestion implements IMultiAnswerQuestion {
-  constructor(readonly question: Question, readonly answers: MultiAnswer[]) {}
-
-  // static parse(input: string): MultiAnswerQuestion {
-  //     const parsed: IMultiAnswerQuestion = JSON.parse(input);
-  //     return new MultiAnswerQuestion(parsed.question, parsed.answers);
-  // }
-}
-
 export type MultiAnswerTaskExternal = {
-  [key: string]: MultiAnswerQuestion;
+  [key: string]: IMultiAnswerQuestionExternal;
+};
+
+export type MultiAnswerExternal = {
+  [key: string]: Answer;
 };
 
 export type MultiAnswerTask = Map<number, MultiAnswerQuestion>;
+
+export interface IMultiAnswerQuestion {
+  question: Question;
+  answers: MultiAnswer;
+}
+
+export interface IMultiAnswerQuestionExternal {
+  question: Question;
+  answers: MultiAnswerExternal;
+}
+
+export class MultiAnswerQuestion implements IMultiAnswerQuestion {
+  question: string;
+  answers: MultiAnswer;
+
+  constructor(question: Question, answers: MultiAnswerExternal) {
+    this.question = question;
+    this.answers = Util.indexedObjectToMap(answers);
+  }
+
+  static parse(input: string): MultiAnswerQuestion {
+    const parsed: IMultiAnswerQuestionExternal = JSON.parse(input);
+    return new MultiAnswerQuestion(parsed.question, parsed.answers);
+  }
+
+  static parseTasks(input: string): MultiAnswerTask {
+    const parsed: MultiAnswerTaskExternal = JSON.parse(input);
+    const data = Util.indexedObjectToMap(parsed);
+    const returnData: MultiAnswerTask = new Map<number, MultiAnswerQuestion>();
+    data.forEach((value, key) => {
+      returnData.set(
+        key,
+        new MultiAnswerQuestion(value.question, value.answers)
+      );
+    });
+    return returnData;
+  }
+}
