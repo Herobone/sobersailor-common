@@ -18,15 +18,14 @@
 
 import * as fs from "fs";
 import { MultiAnswerQuestion } from "../src/models/Task";
-import * as console from "console";
+import tasksJSON from "./Tasks.json";
+import * as path from "path";
 
-try {
-  const data = fs.readFileSync("./Tasks.json", "utf8");
-  console.log(data);
-  const quest = MultiAnswerQuestion.parseTasks(data);
-  quest.forEach((value) => {
-    console.log(value.question);
+describe("Tasks", function () {
+  it("parser", function () {
+    const data = fs.readFileSync(path.join(__dirname, "Tasks.json"), "utf8");
+    const quest = MultiAnswerQuestion.parseTasks(data);
+    expect(quest.size === 2);
+    expect(tasksJSON["0"].question === quest.get(0)?.question);
   });
-} catch (err) {
-  console.error(err);
-}
+});
