@@ -56,7 +56,7 @@ export interface IMultiAnswerQuestionExternal {
 }
 
 export class MultiAnswerQuestion implements IMultiAnswerQuestion {
-  question: string;
+  question: Question;
   answers: MultiAnswer;
 
   constructor(question: Question, answers: MultiAnswerExternal) {
