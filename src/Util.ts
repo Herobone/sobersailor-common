@@ -124,4 +124,11 @@ export default class Util {
 
     return countMap;
   }
+
+  /// Filter method for removing an element from an array
+  static arrayRemove<T>(arr: T[], value: T) {
+    return arr.filter(function (geeks) {
+      return geeks !== value;
+    });
+  }
 }
