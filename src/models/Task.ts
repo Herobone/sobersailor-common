@@ -71,8 +71,6 @@ export class MultiAnswerQuestion implements IMultiAnswerQuestion {
 
   static parseTasks(input: string): MultiAnswerTask {
     const parsed: MultiAnswerTaskExternal = JSON.parse(input);
-    console.log(input);
-    console.log(parsed);
     const data = Util.indexedObjectToMap(parsed);
     const returnData: MultiAnswerTask = new Map<number, MultiAnswerQuestion>();
     data.forEach((value, key) => {

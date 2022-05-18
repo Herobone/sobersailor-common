@@ -1,9 +1,9 @@
-import { Register, ExternalRegister } from "./Register";
-import { Scoreboard, ExternalScoreboard } from "./GameScoreboard";
+import { ExternalRegister, Register } from "./Register";
+import { ExternalScoreboard, Scoreboard } from "./GameScoreboard";
 import {
+  EvaluationScoreboard,
   ExternalAnswers,
   ExternalEvaluationScoreboard,
-  EvaluationScoreboard,
 } from "./EvaluationScoreboard";
 
 /*****************************
@@ -38,6 +38,7 @@ export interface IGame {
   register: Register;
   evaluationScoreboard: EvaluationScoreboard;
   scoreboard: Scoreboard;
+  latestTasks: string[];
 }
 
 export interface IGameExternal<TimeStampClass> {
@@ -54,6 +55,7 @@ export interface IGameExternal<TimeStampClass> {
   evaluationScoreboard: ExternalEvaluationScoreboard;
   evaluationAnswers: ExternalAnswers;
   scoreboard: ExternalScoreboard;
+  latestTasks: string[];
 }
 
 export class Game implements IGame {
@@ -70,7 +72,8 @@ export class Game implements IGame {
     readonly created: Date,
     readonly register: Register,
     readonly evaluationScoreboard: EvaluationScoreboard,
-    readonly scoreboard: Scoreboard
+    readonly scoreboard: Scoreboard,
+    readonly latestTasks: string[]
   ) {}
 
   static createEmpty(id: string, uid: string, displayName: string): Game {
@@ -90,7 +93,8 @@ export class Game implements IGame {
       new Date(),
       reg,
       sco,
-      board
+      board,
+      []
     );
   }
 }
