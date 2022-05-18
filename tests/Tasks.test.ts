@@ -20,6 +20,7 @@ import * as fs from "fs";
 import { MultiAnswerQuestion } from "../src/models/Task";
 import tasksJSON from "./Tasks.json";
 import * as path from "path";
+import { TaskType } from "../src/gamemodes/tasks";
 
 describe("Tasks", function () {
   it("parser", function () {
@@ -27,5 +28,8 @@ describe("Tasks", function () {
     const quest = MultiAnswerQuestion.parseTasks(data);
     expect(quest.size === 2);
     expect(tasksJSON["0"].question === quest.get(0)?.question);
+  });
+  it("conversion", function () {
+    expect(TaskType.WHO_WOULD_RATHER === "whowouldrather");
   });
 });

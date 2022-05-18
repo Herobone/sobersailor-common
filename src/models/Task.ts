@@ -20,7 +20,7 @@ import Util from "../Util";
 
 export interface Task {
   id: string;
-  singleTarget: boolean;
+  targetCount: number;
   multiAnswer: boolean;
 }
 
