@@ -1,5 +1,6 @@
 import { Task } from "../models/Task";
 
+// eslint-disable-next-line no-shadow
 export enum TaskType {
   WHO_WOULD_RATHER = "whowouldrather",
   TRUTH_OR_DARE = "truthordare",
