@@ -16,7 +16,7 @@
     "postversion": "git push && git push --tags"
   },
   "author": "Herobone",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "files": [
     "lib/**/*"
   ],
