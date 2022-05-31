@@ -1,6 +1,6 @@
 {
   "name": "sobersailor-common",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "",
   "scripts": {
     "build": "tsc -b tsconfig-build.json",
