@@ -18,9 +18,6 @@ export interface IPlayer {
   nickname: string;
   sips: number;
   answer: string | null;
-  online: boolean;
-  lastSeen: number;
-  readyState: number;
 }
 
 export interface IPlayerExternal {
@@ -30,13 +27,45 @@ export interface IPlayerExternal {
 }
 
 export class Player implements IPlayer {
+  private _lastSeen: number;
+  private _online: boolean;
+  private _readyState: number;
+
   constructor(
     readonly uid: string,
     readonly nickname: string,
     readonly sips: number,
     readonly answer: string | null,
-    readonly lastSeen: number,
-    readonly online: boolean,
-    readonly readyState: number
-  ) {}
+    lastSeen: number = -1,
+    online: boolean = false,
+    readyState: number = -1
+  ) {
+    this._lastSeen = lastSeen;
+    this._online = online;
+    this._readyState = readyState;
+  }
+
+  get lastSeen(): number {
+    return this._lastSeen;
+  }
+
+  set lastSeen(value: number) {
+    this._lastSeen = value;
+  }
+
+  get online(): boolean {
+    return this._online;
+  }
+
+  set online(value: boolean) {
+    this._online = value;
+  }
+
+  get readyState(): number {
+    return this._readyState;
+  }
+
+  set readyState(value: number) {
+    this._readyState = value;
+  }
 }
