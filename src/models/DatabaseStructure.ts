@@ -16,9 +16,10 @@
 export interface DatabaseStructure {
   [gameID: string]: DatabaseGame;
 }
+type PlayerListInt = { [playerID: string]: GamePlayer };
 
 export interface DatabaseGame {
-  [playerID: string]: GamePlayer;
+  users: PlayerListInt;
 }
 
 export interface GamePlayer {
