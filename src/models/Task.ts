@@ -15,11 +15,13 @@
  */
 
 import Util from "../Util";
+import { TaskType } from "../gamemodes/tasks";
 
 export interface Task {
-  id: string;
+  id: TaskType;
   targetCount: number;
   multiAnswer: boolean;
+  subTasks?: TaskType[];
 }
 
 export type Question = string;

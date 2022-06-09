@@ -22,6 +22,8 @@ export enum TaskType {
   TRUTH_OR_DARE = "truthordare",
   TIC_TAC_TOE = "tictactoe",
   WOULD_YOU_RATHER = "wouldyourather",
+  TOD_TRUTH = "truth",
+  TOD_DARE = "dare",
 }
 
 export const tasks: Task[] = [
@@ -34,6 +36,7 @@ export const tasks: Task[] = [
     id: TaskType.TRUTH_OR_DARE,
     targetCount: 1,
     multiAnswer: false,
+    subTasks: [TaskType.TOD_DARE, TaskType.TOD_TRUTH],
   },
   {
     id: TaskType.TIC_TAC_TOE,
