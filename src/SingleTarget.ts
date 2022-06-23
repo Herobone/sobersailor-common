@@ -13,10 +13,11 @@
  * You should have received a copy of the GNU Affero General Public License along with this program.
  * If not, see <https://www.gnu.org/licenses/>.
  */
+import { TaskType } from "./gamemodes/tasks";
 
 export interface SingleTargetRequest {
   answer: boolean;
-  type?: string;
+  type?: TaskType;
   gameID: string;
 }
 
