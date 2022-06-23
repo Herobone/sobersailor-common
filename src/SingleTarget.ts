@@ -16,6 +16,7 @@
 
 export interface SingleTargetRequest {
   answer: boolean;
+  type?: string;
   gameID: string;
 }
 
